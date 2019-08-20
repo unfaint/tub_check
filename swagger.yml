@@ -1,0 +1,28 @@
+swagger: "2.0"
+info:
+  description: Processing medical imagery to determine if evidences of tuberculosis are present.
+  version: "0.1"
+  title: Tuberculosis check
+consumes:
+  - multipart/form-data
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /check:
+    post:
+      description: Processes uploaded image with pretrained deep convolutional network.
+      operationId: controller.check
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: image
+          in: formData
+          description: Chest X-ray image needed to check.
+          type: file
+          required: true
+      responses:
+        201:
+          description: Succefully processed uploaded image.
