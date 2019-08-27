@@ -2,7 +2,7 @@
 Controller module for API
 """
 from flask import make_response, abort
-from logger import log
+from .logger import log
 
 
 @log
